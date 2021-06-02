@@ -13,7 +13,7 @@ jobs:
       shell: bash
       if: contains(github.ref, '-dev')
       run: |
-          branch_name=$(echo ${GITHUB_REF#refs/heads/} | rev | cut -d'-' -f 1 | rev)
+          "branch_name"="$(echo ${GITHUB_REF#refs/heads/} | sed 's/.\{4\}$//')" >> $GITHUB_ENV 
           
     - name: serverless deploy
       if: contains(github.ref, '-dev')
