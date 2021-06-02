@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - /\w*dev\b/
+      - '/\w*dev\b/'
 name: Serverless deploy personal env
 jobs:
   deploy:
