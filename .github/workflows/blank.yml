@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "Hello world when it's Monday"
+      shell: bash
       run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
+          echo "action_state="::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"" >> $GITHUB_ENV
     - name: serverless deploy
       uses: everafterai/github-action@master
       with:
