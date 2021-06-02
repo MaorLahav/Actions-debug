@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - test
+      - main
 name: Serverless deploy personal env
 jobs:
   deploy:
