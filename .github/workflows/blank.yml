@@ -17,6 +17,8 @@ jobs:
         Last_Name: Octocat
     - name: serverless deploy
       uses: everafterai/github-action@master
+      env:
+        DAY_OF_WEEK: MON
       with:
         args: ${{ env.DAY_OF_WEEK }}
   
