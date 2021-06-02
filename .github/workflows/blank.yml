@@ -8,11 +8,12 @@ jobs:
     name: personal deploy
     runs-on: ubuntu-latest
     steps:
+
     - name: "Hello world when it's Monday"
       shell: bash
       if: contains(github.ref, '-dev')
       run: |
-          echo "branch_name="$(echo github.ref.split.outputs._0)"" >> $GITHUB_ENV
+          echo "branch_name="$(echo ${GITHUB_REF#refs/heads/})"" >> $GITHUB_ENV
     - name: serverless deploy
       if: contains(github.ref, '-dev')
       uses: everafterai/github-action@master
