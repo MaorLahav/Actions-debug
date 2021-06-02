@@ -12,6 +12,10 @@ jobs:
       shell: bash
       run: |
           echo "branch_name="$(echo ${GITHUB_REF#refs/heads/})"" >> $GITHUB_ENV
+    - name: "Hello world when it's Monday"
+      if: ${{ env.branch_name == *"-dev"*  }}
+      run: |
+          echo ${{ env.branch_name }} | sed '.*(?=\-)'
     - name: serverless deploy
       uses: everafterai/github-action@master
       with:
