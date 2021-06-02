@@ -13,7 +13,8 @@ jobs:
       shell: bash
       if: contains(github.ref, '-dev')
       run: |
-          echo "branch_name="$(echo ${GITHUB_REF#refs/heads/})"" >> $GITHUB_ENV
+          branch_name=$(echo ${GITHUB_REF#refs/heads/} | rev | cut -d'-' -f 1 | rev)
+          
     - name: serverless deploy
       if: contains(github.ref, '-dev')
       uses: everafterai/github-action@master
