@@ -1,14 +1,18 @@
 on:
   push:
     branches:
-      - test
+      - main
 name: Serverless deploy personal env
 jobs:
   deploy:
     name: personal deploy
     runs-on: ubuntu-latest
     steps:
+    - name: serverless deploy1
+      run: $ENV=maor
     - name: serverless deploy
       uses: everafterai/github-action@master
       with:
-        args: echo maor
+        args: ${{$ENV}}
+  
+      
