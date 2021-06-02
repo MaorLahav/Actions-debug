@@ -10,5 +10,6 @@ jobs:
     steps:
     - name: serverless deploy
       uses: everafterai/github-action@master
+      run: $ENV=maor
       with:
-        args: ${{echo maor}}
+        args: ${{$ENV}}
