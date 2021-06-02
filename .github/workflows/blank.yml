@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: serverless deploy
-      uses: everafterai/github-action@master
       run: $ENV=maor
+    - name: serverless deploy1
+      uses: everafterai/github-action@master
       with:
         args: ${{$ENV}}
